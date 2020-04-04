@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="characterWorld"
+            type="com.example.coronaapp.viewModel.WorldVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/worldbackground">
+
+        <TextView
+            android:id="@+id/tv_affectedCountries"
+            android:layout_width="250dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text="@{characterWorld.affCountriesLD}"
+            android:textColor="#F44336"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="250dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="224dp"
+            android:gravity="center"
+            android:text="Affected countries"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_deaths" />
+
+        <TextView
+            android:id="@+id/tv_recover"
+            android:layout_width="125dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="40dp"
+            android:gravity="center"
+            android:text="@{characterWorld.recoverLD}"
+            android:textColor="#31EC39"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/tv_cases"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <TextView
+            android:id="@+id/tv_cases"
+            android:layout_width="101dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="68dp"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text="@{characterWorld.casesLD}"
+            android:textColor="#00BCD4"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="125dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="74dp"
+            android:layout_marginEnd="36dp"
+            android:gravity="center"
+            android:text="Recovered"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.908"
+            app:layout_constraintStart_toEndOf="@+id/textView8"
+            app:layout_constraintTop_toBottomOf="@+id/tv_deaths" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="101dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="68dp"
+            android:layout_marginTop="74dp"
+            android:gravity="center"
+            android:text="Cases"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_deaths" />
+
+        <TextView
+            android:id="@+id/tv_deaths"
+            android:layout_width="108dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text="@{characterWorld.deathsLD}"
+            android:textColor="#F44336"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="108dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="60dp"
+            android:gravity="center"
+            android:text="Deaths"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
