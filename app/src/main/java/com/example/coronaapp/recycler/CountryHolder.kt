@@ -16,7 +16,7 @@ class CountryHolder (
 
     fun bind(country: CountriesItem) {
         tv_country.text = country.country
-        tv_deaths.text = country.deaths.toString()
+        tv_deaths.text = "Deaths: " + country.deaths.toString()
 
         itemView.setOnClickListener {
             clickLambda(country)
