@@ -42,7 +42,7 @@
         android:layout_width="338dp"
         android:layout_height="101dp"
         android:gravity="center"
-        android:text=" • Wash your hands \n • Sit at home \n • Keep distance from people"
+        android:text=" • Wash your hands \n • Stay home \n • Keep distance from people"
         android:textColor="#FDFCFC"
         android:textSize="24sp"
         android:textStyle="bold|italic"
