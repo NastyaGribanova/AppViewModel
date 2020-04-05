@@ -28,16 +28,6 @@ class WorldSituation : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        model.search()
-        model.coronaLD.observe(viewLifecycleOwner, Observer{
-            val binding: WorldFragmentBinding = DataBindingUtil.inflate(layoutInflater, R.layout.world_fragment, container_main, false)
-            binding.characterWorld = model
-        })
-    }
-
     companion object {
         fun newInstance() = WorldSituation()
     }
