@@ -8,10 +8,13 @@ import com.example.coronaapp.corona.Corona
 import com.example.coronaapp.corona.CoronaService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
 class WorldVM : ViewModel() {
 
-    private var service: CoronaService = ApiFactory.coronaService
+    @Inject
+    lateinit var service: CoronaService
+
     val corona: MutableLiveData<Corona> by lazy { MutableLiveData<Corona>() }
     val coronaLD: LiveData<Corona> = corona
 

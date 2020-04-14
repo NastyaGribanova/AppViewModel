@@ -5,27 +5,35 @@ import android.view.*
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coronaapp.CountryActivity
 import com.example.coronaapp.R
 import com.example.coronaapp.corona.CountriesItem
+import com.example.coronaapp.di.AppInjector
 import com.example.coronaapp.recycler.CountryAdapter
-import com.example.coronaapp.viewModel.CountryVM
+import com.example.coronaapp.viewModel.CountryAllVM
+import com.example.coronaapp.di.ViewModelFactory
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.country_fragment.*
 import java.io.IOException
-import kotlinx.coroutines.*
+import javax.inject.Inject
 
-class CountrySituation : Fragment() , CoroutineScope by MainScope(){
+class CountrySituation : Fragment() {
 
-    private val model = CountryVM()
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    lateinit var model: CountryAllVM
     private var adapter: CountryAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View?{
+        AppInjector.initCountryAllComponent().injectCountryFragment(this)
+        initViewModel()
         setHasOptionsMenu(true)
         return inflater.inflate(R.layout.country_fragment, container, false)
     }
@@ -107,6 +115,21 @@ class CountrySituation : Fragment() , CoroutineScope by MainScope(){
             }
         })
         return false;
+    }
+
+    fun initViewModel() {
+        val viewModel by lazy {
+            ViewModelProvider(
+                this,
+                viewModelFactory
+            ).get(CountryAllVM::class.java)
+        }
+        this.model = viewModel
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        AppInjector.clearCountryAllComponent()
     }
 
     companion object {
